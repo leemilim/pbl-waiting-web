@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+<head>
+  <title>Waiting</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap"
+        rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('#similar').show()
+      $('#near').hide()
+    });
+
+    function open_near() {
+        $('#near').show()
+        $('#similar').hide()
+    }
+    function open_similar() {
+        $('#similar').show()
+        $('#near').hide()
+    }
+  </script>
+</head>
+<body>
+  <h1 onclick="window.location.href='/'">Waiting</h1>
+  <div class="flex">
+    <div class="items">
+      <ul class="list">
+        <li onclick="window.location.href='/korea'">한식</li>
+        <li onclick="window.location.href='/china'">중식</li>
+        <li onclick="window.location.href='/japan'">일식</li>
+        <li onclick="window.location.href='/west'">양식</li>
+        <li onclick="window.location.href='/etc'">기타</li>
+        <li style="color:red" onclick="window.location.href='/my_restaurant'">내 식당</li>
+      </ul>
+    </div>
+    <div class="items" id="contents">
+      <div class="inflex">
+        <div class="initems">
+          <h2 style="margin-bottom:30px">
+            <button class="pin"><img src={{url_for('static', filename='pin-red.png')}}></button>
+            매스플레이트
+          </h2>
+          <div style="margin-bottom: 30px">
+            <p>파스타와 필라프가 맛있는 이탈리안 가정식</p>
+            <div class="score">
+              <img src={{url_for('static', filename='star-1.png')}}>
+              <img src={{url_for('static', filename='star-1.png')}}>
+              <img src={{url_for('static', filename='star-1.png')}}>
+              <img src={{url_for('static', filename='star-1.png')}}>
+              <img src={{url_for('static', filename='star-0.png')}}>
+            </div>
+            <p>영업시간: 11:00-21:00, 15:00-16:30 브레이크 타임 (영업중)</p>
+            <p>대기인원: 1~5명</p>
+            <p>대표전화: 010-7419-3339</p>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1070.4176248363271!2d127.02881383546845!3d37.58706246273474!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357cbd16ca0ba433%3A0xdbda0abcc6ab98c5!2z66ek7Iqk7ZSM66CI7J207Yq4!5e0!3m2!1sko!2skr!4v1669878427075!5m2!1sko!2skr" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          <div>
+            <h3>menu</h3>
+            <table>
+              <tr>
+                <td style="width:330px">목살스테이크</td>
+                <td class="price">20,900원</td>
+              </tr>
+              <tr>
+                <td>목살필라프</td>
+                <td class="price">10,900원</td>
+              </tr>
+              <tr>
+                <td>로제파스타</td>
+                <td class="price">10,900원</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="initems">
+          <h3>other</h3>
+          <div id="similar">
+            <ul class="alignment">
+              <li style="color:red">관련도순</li>
+              <li style="color:grey" onclick="open_near()">거리순</li>
+            </ul>
+            <div class="card">
+              <div>
+                <p>고피자 &nbsp;&nbsp;<a style="color:red">피자</a></p>
+                <p>영업시간: 11:00-19:00 (영업중)</p>
+                <p>대기인원: 0명</p>
+              </div>
+              <div>
+                <p>달링스테이크 &nbsp;&nbsp;<a style="color:red">스테이크, 립</a></p>
+                <p>영업시간: 11:00-20:00 (영업중)</p>
+                <p>대기인원: 0명</p>
+              </div>
+              <div onclick="window.location.href='/hyo2dang'">
+                <p>효이당 &nbsp;&nbsp;<a style="color:red">스파게티, 파스타</a></p>
+                <p>영업시간: 12:00-20:00 (영업중)</p>
+                <p>대기인원: 0명</p>
+              </div>
+            </div>
+          </div>
+          <div id="near">
+            <ul class="alignment">
+              <li style="color:grey" onclick="open_similar()">관련도순</li>
+              <li style="color:red">거리순</li>
+            </ul>
+            <div class="card">
+              <div>
+                <p>무아국수집 &nbsp;&nbsp;<a style="color:red">0m</a></p>
+                <p>영업시간: 10:00-23:00 (영업중)</p>
+                <p>대기인원: 1~5명</p>
+              </div>
+              <div>
+                <p>옥두헌손두부 &nbsp;&nbsp;<a style="color:red">0m</a></p>
+                <p>영업시간: 7:00-22:00 (영업중)</p>
+                <p>대기인원: 0명</p>
+              </div>
+              <div>
+                <p>고른햇살 &nbsp;&nbsp;<a style="color:red">14m</a></p>
+                <p>영업시간: 6:30-23:30 (영업중)</p>
+                <p>대기인원: 0명</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

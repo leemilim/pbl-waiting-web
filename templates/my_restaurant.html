@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+  <title>Waiting</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap"
+        rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    function update() {
+        let waiting = $('#select option:selected').val()
+
+        $.ajax({
+            type: 'POST',
+            url: '/waiting',
+            data: {'waiting_give': waiting},
+            success: function(response) {
+                alert(response['msg'])
+                window.location.reload()
+            }
+        });
+    }
+  </script>
+</head>
+<body>
+  <h1 onclick="window.location.href='/'">Waiting</h1>
+  <div class="flex">
+    <div class="items">
+      <ul class="list">
+        <li onclick="window.location.href='/korea'">한식</li>
+        <li onclick="window.location.href='/china'">중식</li>
+        <li onclick="window.location.href='/japan'">일식</li>
+        <li onclick="window.location.href='/west'">양식</li>
+        <li onclick="window.location.href='/etc'">기타</li>
+        <li style="color:red" onclick="window.location.href='/my_restaurant'">내 식당</li>
+      </ul>
+    </div>
+    <div class="items" id="contents">
+      <h2 style="margin-bottom:50px">내 식당</h2>
+      <div>
+        <div>
+          <p>끄트머리집</p>
+          <p>영업시간: 11:00-22:00 (영업중)</p>
+          <p>대기인원:
+            <select name="select" id="select">
+              <option selected>select</option>
+              <option value="0">0</option>
+              <option value="1~5">1~5</option>
+              <option value="6~10">6~10</option>
+              <option value="11~15">11~15</option>
+              <option value="16~20">16~20</option>
+              <option value="21~">21~</option>
+            </select> 명
+            <button onclick="update()">enter</button></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

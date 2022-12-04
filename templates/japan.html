@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+  <title>Waiting</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap"
+        rel="stylesheet">
+</head>
+<body>
+  <h1 onclick="window.location.href='/'">Waiting</h1>
+  <div class="flex">
+    <div class="items">
+      <ul class="list">
+        <li onclick="window.location.href='/korea'">한식</li>
+        <li onclick="window.location.href='/china'">중식</li>
+        <li onclick="window.location.href='/japan'">일식</li>
+        <li onclick="window.location.href='/west'">양식</li>
+        <li onclick="window.location.href='/etc'">기타</li>
+        <li style="color:red" onclick="window.location.href='/my_restaurant'">내 식당</li>
+      </ul>
+    </div>
+    <div class="itmes" id="contents">
+      <div class="reflex">
+        <div class="initems">
+          <h2 style="margin-bottom:30px">일식</h2>
+          <div class="card">
+            <div>
+              <p><button class="pin">
+                <img src={{url_for('static', filename='pin-red.png')}}></button>
+                야마토텐동
+              </p>
+              <p>영업시간: 11:00-21:00, 15:00-17:00 브레이크 타임 (영업중)</p>
+              <p>대기인원: 6~10명</p>
+            </div>
+            <div>
+              <p><button class="pin">
+                <img src={{url_for('static', filename='pin-black.png')}}></button>
+                백소정
+              </p>
+              <p>영업시간: 11:00-21:00, 15:00-17:00 브레이크 타임 (영업중)</p>
+              <p>대기인원: 0명</p>
+            </div>
+            <div>
+              <p><button class="pin">
+                <img src={{url_for('static', filename='pin-black.png')}}></button>
+                안돈48
+              </p>
+              <p>영업시간: 11:00-21:00, 15:00-17:00 브레이크 타임 (영업중)</p>
+              <p>대기인원: 1~5명</p>
+            </div>
+            <div>
+              <p><button class="pin">
+                <img src={{url_for('static', filename='pin-black.png')}}></button>
+                호랑이초밥
+              </p>
+              <p>영업시간: 11:30-22:00, 15:00-17:00 브레이크 타임 (영업중)</p>
+              <p>대기인원: 1~5명</p>
+            </div>
+          </div>
+        </div>
+        <div class="initems" id="map">
+          <h4 style="color:gray">한눈에 보기</h4>
+          <img src={{url_for('static', filename='japan.png')}}>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
